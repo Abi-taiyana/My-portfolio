@@ -215,6 +215,15 @@ section{
 .about-content .btn{
     margin: 3rem 0;
 }
+.hidden{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s ease;
+}
+
+.hidden.show{
+    max-height: 600px;
+}
 ::-webkit-scrollbar{
     width: 5px;
 }
@@ -230,6 +239,75 @@ section{
     text-align: center;
     font-size: 7rem;
     margin: 5rem 0;
+}
+.skills{
+    background: var(--bg-color);
+}
+
+.skills-container{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    max-width:900px;
+    margin:auto;
+}
+
+.skill-card{
+    background:#181818;
+    border:2px solid var(--main-color);
+    border-radius:20px;
+    overflow:hidden;
+    transition:.3s;
+    cursor:pointer;
+}
+
+.skill-card:hover{
+    box-shadow:0 0 20px var(--main-color);
+}
+
+.skill-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px;
+}
+
+.skill-header h3{
+    color:white;
+    font-size:2.3rem;
+}
+
+.skill-header span{
+    font-size:3rem;
+    color:#dca3eb;
+    transition:.3s;
+}
+
+.skill-info{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .5s ease;
+    padding:0 20px;
+}
+
+.skill-info ul{
+    list-style:none;
+    padding:20px 0;
+}
+
+.skill-info li{
+    color:white;
+    font-size:1.7rem;
+    padding:10px 0;
+    border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.skill-card.active .skill-info{
+    max-height:400px;
+}
+
+.skill-card.active .skill-header span{
+    transform:rotate(45deg);
 }
 .services{
     background-color: var(--bg-color);
@@ -324,7 +402,7 @@ section{
 }
 .projects-card img{
     max-width: 300px;
-    border-radius: 2em;
+    border-radius: 0.5em;
     object-fit: cover;
 }
 .projects-card h3{
