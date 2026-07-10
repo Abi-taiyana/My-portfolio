@@ -19,3 +19,23 @@ skillCards.forEach(card => {
         card.classList.toggle("active");
     });
 });
+const form = document.querySelector(".contact-form");
+form.addEventListener("submit", async function(e){
+    e.preventDefault();
+    const button = document.querySelector(".gradient-btn");
+    button.textContent = "Sending...";
+    const data = new FormData(form);
+    const response = await fetch(form.action,{
+        method:"POST",
+        body:data,
+        headers:{
+            "Accept":"application/json"
+        }
+    });
+    if(response.ok){
+        button.textContent = "✓ Message Sent";
+        form.reset();
+    }else{
+        button.textContent = "Try Again";
+    }
+});
